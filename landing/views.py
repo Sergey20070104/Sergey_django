@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+from .models import MyLessons
 
-# Create your views here.
+class MyLessonsView(ListView):
+    model = MyLessons
+    template_name = 'landing/index.html'

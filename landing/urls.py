@@ -1,12 +1,18 @@
 from django.urls import path
 from django.views.generic.base import TemplateView
-
+from .views import MyLessonsView
 
 urlpatterns = [
-    path('', TemplateView.as_view(
+    path('', MyLessonsView.as_view(
         template_name="landing/index.html"
     ), name='home'),
-    path('base/', TemplateView.as_view(
-        template_name="landing/base.html"
-    ), name='base')
+    path('about/', TemplateView.as_view(
+        template_name="landing/about.html"
+    ), name='about'),
+    path('contact/', TemplateView.as_view(
+        template_name="landing/contact.html"
+    ), name='contact'),
+    path('project/', TemplateView.as_view(
+        template_name="landing/project.html"
+    ), name='project')
 ]

@@ -1,5 +1,24 @@
 {% extends "landing/base.html" %}
+{%load static%}
 
 {% block content %}
-    <p align="center">Основной контент (main)</p>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+    <div class="col-md-8" style="background-color: #99CCFF">
+        <h2>Список уроков</h2>
+        {% for cc in object_list  %}
+            <div>
+                <h2>{{ cc.name }} </h2>
+                <h2>{{ cc.school }} </h2>
+                <h2>{{ cc.annotation }} </h2>
+                <h2>{{ cc.date_create }} </h2>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+</div>
+</div>
+
+
 {% endblock %}

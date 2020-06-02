@@ -1,0 +1,15 @@
+{% extends "landing/base.html" %}
+{%load static%}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+    <div class="col-md-8" style="background-color: #99CCFF">
+        <div class="section-reg">
+            <h2><b>Имя</b>: {{user.username}}<br></h2>
+        </div>
+    </div>
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+</div>
+</div>
+{% endblock %}

@@ -1,10 +1,74 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link id="theme-style" rel="stylesheet" href="{% static "landing/css/base.css"%}">
     <meta charset="UTF-8">
     <title>Blog</title>
+    <link rel="icon" href="{% static "landing/images/logo.ico" %}" type="image/x-icon">
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand"><img src="{% static "landing/images/iconka.png" %}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="/project" class="nav-link">О проекте</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/" class="nav-link">Журнал проекта</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/" class="nav-link">Данные проекта</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">O нас </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link">Контакты </a>
+                    </li>
+                </ul>
+                         <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a href="/profile" class="nav-link">Личный кабинет </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/exit" class="nav-link">Выйти </a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a href="/reg" class="nav-link">Регистрация </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/auth" class="nav-link">Войти</a>
+                </li>
+            {% endif %}
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+
+     {% if messages %}
+        {% for mess in messages %}
+            <div class="alert alert-success">
+                {{ mess }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
     {% block content %}{% endblock %}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>

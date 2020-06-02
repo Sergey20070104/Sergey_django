@@ -1,0 +1,24 @@
+{% extends "landing/base.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+    <div class="col-md-8" style="background-color: #99CCFF">
+        <div class="section-reg">
+        <h2>Войти в личный кабинет</h2>
+        <section>
+                <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                    <button type="submit" class="btn-primary">Войти</button>
+
+                </form>
+            </section>
+        </div>
+    </div>
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+</div>
+</div>
+{% endblock %}
