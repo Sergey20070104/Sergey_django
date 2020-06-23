@@ -36,6 +36,11 @@
                     </li>
                 </ul>
                          <ul class="navbar-nav ml-auto">
+             <li class="nav-item active">
+                    <a href="https://www.facebook.com/robolandkzn/" class="nav-link">
+                        <img src="{% static "landing/images/facebook.png" %}" width="3%" style="float:right; position:absolute; bottom:25%;right:20%;" %}">
+                    </a>
+             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item active">
                     <a href="/profile" class="nav-link">Личный кабинет </a>
