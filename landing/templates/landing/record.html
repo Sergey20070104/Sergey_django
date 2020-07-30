@@ -1,0 +1,44 @@
+{% extends "landing/base.html" %}
+{%load static%}
+
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+    <div class="col-md-8" style="background-color: #99CCFF">
+        <h2>Записи</h2>
+        {% for cc in object_list  %}
+            <div>
+<!--                <p><a href="{% url 'mylesson-detail' pk=cc.pk %}">{{ cc.name }} </a></p>-->
+                <h2>{{ cc.name }} </h2>
+                <h2>{{ cc.temp }} </h2>
+                <h2>{{ cc.mass }} </h2>
+                <h2>{{ cc.quality }} </h2>
+                <h2>{{ cc.ip }} </h2>
+            </div>
+        {% endfor %}
+        <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+
+    </div>
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+</div>
+</div>
+
+
+{% endblock %}

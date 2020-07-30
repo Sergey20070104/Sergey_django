@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserOurRegistration
 from .models import Profile
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
 
 def register(request):
     if request.method == "POST":
@@ -20,4 +20,9 @@ def register(request):
 class ProfileView(ListView):
     model = Profile
     template_name = 'users/profile.html'
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    fields = ['img']
+    template_name = 'users/profile_update.html'
+    success_url = '/profile'
 

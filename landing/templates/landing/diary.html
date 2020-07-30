@@ -1,11 +1,24 @@
 {% extends "landing/base.html" %}
 {%load static%}
+<!--{% load blog_tag %}-->
 {% load crispy_forms_tags %}
 {% block content %}
+
 <div class="container-fluid">
 <div class="row">
     <div class="col-md-2" style="background-color: #FFFFFF"></div>
     <div class="col-md-8" style="background-color: #99CCFF">
+
+        {% for cc in object_list  %}
+            <div>
+                <h5>{{ cc.author }} </h5>
+                <h3>{{ cc.text }} </h3>
+                <h5>{{ cc.data }} </h5>
+                <br>
+                <a href="{% url 'blog_update' pk=cc.pk %}"> Изменить </a>
+                <a href="{% url 'blog_delete' pk=cc.pk %}"> Удалить </a>
+            </div>
+        {% endfor %}
         {% if user.is_authenticated %}
         <form method="post">
             {% csrf_token %}
@@ -13,16 +26,11 @@
             <button class="p-2 btn btn-secondary">Отправить</button><br><br>
         </form>
         {% endif %}
-        {% for cc in object_list  %}
-            <div>
-                <h5>{{ cc.author }} </h5>
-                <h3>{{ cc.text }} </h3>
-                <h5>{{ cc.data }} </h5>
-                <br>
-            </div>
-        {% endfor %}
     </div>
-    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+    <div class="col-md-2" style="background-color: #FFFFFF">
+<!--        {% total_posts %}-->
+
+    </div>
 </div>
 </div>
 

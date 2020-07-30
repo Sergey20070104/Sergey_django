@@ -1,4 +1,5 @@
 {% extends "landing/base.html" %}
+{%load crispy_forms_tags%}
 {%load static%}
 {% block content %}
 <div class="container-fluid">
@@ -10,12 +11,19 @@
                 <p class="media-body pd-3 mb=0 small lh-125 border-bottom border-gray">
                     <strong class="d-block text-gray-dark">@{{user.username}}</strong>
                     <b>Email:</b>{{user.email}}
-                    <a href="{% url 'profile_update' pk=user.profile.pk %}"> Добавить фотографию </a>
                 </p>
 
             </div>
+        <div class="mt-4">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Update"><br><br>
+            </form>
+        </div>
 
     </div>
+
     <div class="col-md-2" style="background-color: #FFFFFF"></div>
 </div>
 </div>

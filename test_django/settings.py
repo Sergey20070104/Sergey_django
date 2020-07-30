@@ -25,13 +25,13 @@ SECRET_KEY = '8=&fs%9!t7h2=(y370&o7sl7^@n^8u5jfpfd510uu+&mk!z@2='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'name.pythonanywhere.com']
 
-
+SITE_ID=1
 # Application definition
 
 INSTALLED_APPS = [
-    'landing',
+    'landing.apps.LandingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    #'taggit',
+
 
 ]
 
@@ -130,3 +134,5 @@ STATICFILES_DIRS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'home'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

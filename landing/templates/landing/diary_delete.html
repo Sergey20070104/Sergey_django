@@ -1,0 +1,23 @@
+{% extends "landing/base.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+    <div class="col-md-8" style="background-color: #99CCFF">
+        {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            Вы хотите удалить запись?
+            <button class="p-2 btn btn-secondary">Удалить</button><br><br>
+        </form>
+        {% endif %}
+    </div>
+    <div class="col-md-2" style="background-color: #FFFFFF"></div>
+</div>
+</div>
+
+
+{% endblock %}
