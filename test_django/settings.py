@@ -25,7 +25,7 @@ SECRET_KEY = '8=&fs%9!t7h2=(y370&o7sl7^@n^8u5jfpfd510uu+&mk!z@2='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'name.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'WagDino.pythonanywhere.com']
 
 SITE_ID=1
 # Application definition
